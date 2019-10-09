@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
+const Coin = require('../models/coin')
 const router = new express.Router()
 
 router.post('/users', async (req, res) => {
@@ -8,6 +9,11 @@ router.post('/users', async (req, res) => {
 
     try {
         const token = await user.generateAuthToken()
+
+        // Try to Implement it using middleware
+        const coin = new Coin({ owner: user._id })
+        await coin.save()
+        
         res.status(201).send({ user, token })
     } catch (e) {
         res.status(400).send(e)
