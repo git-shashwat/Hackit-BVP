@@ -1,0 +1,151 @@
+
+body{
+  box-sizing: border-box;
+ height: 100%;
+ width: 100%;
+ overflow-x:auto;
+ overflow-y: scroll;
+}
+
+.back{
+  background-image: url("../grass.jpg");
+  background-repeat:repeat-y;
+  overflow-y: auto;
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  top:0px;
+  bottom:0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  z-index: -1;
+
+}
+
+
+@media (min-width: 450px) {
+  h1.heading {
+    font-size: 3.55em;
+  }
+
+}
+@media (min-width: 760px) {
+  h1.heading {
+    font-size: 3.05em;
+  }
+
+}
+@media (min-width: 900px) {
+  h1.heading {
+    font-size: 3.25em;
+    margin: 0 0 0.3em;
+  }
+}
+
+.container-fostrap {
+  display: table-cell;
+  padding: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+.rooms{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-shadow:0 0 5px white;
+  display: block;
+  padding: 5rem;
+  margin: 5rem;
+  position: absolute;
+}
+
+.navbar{
+  margin-bottom:1rem;
+  background-image: url("../green1.jpg");
+  background-size:100% 100%;
+width: 100%;
+overflow-x: hidden;
+color:white;
+font-weight: bold;
+text-shadow:0 0 8px white;
+}
+
+
+.navbar-brand > img{
+  display: inline-block;
+  width: 20px;
+  position: relative;
+  box-shadow: 3px 3px white;
+  bottom: 0.7rem;
+  margin-bottom: 2px;
+  margin-right:5px;
+  border-radius: 50px;
+}
+
+ul.nav.navbar-nav li{
+  margin: 1rem;
+}
+
+
+
+
+
+.card {
+weight: 50%;
+  display: block;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: box-shadow .25s;
+}
+.card:hover {
+  box-shadow: 0 8px 17px 0 white,0 6px 20px 0 white;
+}
+.img-card {
+  width: 100%;
+  height:200px;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  display:block;
+    overflow: hidden;
+}
+.img-card img{
+  width: 100%;
+  height: 200px;
+  object-fit:cover;
+  transition: all .25s ease;
+}
+.card-content {
+  padding:15px;
+  text-align:left;
+}
+.card-title {
+  margin-top:0px;
+  font-weight: 700;
+  font-size: 1.65em;
+}
+.card-title a {
+  color: #000;
+  text-decoration: none !important;
+}
+.card-read-more {
+  border-top: 1px solid #D4D4D4;
+}
+.card-read-more a {
+  text-decoration: none !important;
+  padding:10px;
+  font-weight:600;
+  text-transform: uppercase
+}
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
