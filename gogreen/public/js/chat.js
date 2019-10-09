@@ -71,9 +71,7 @@ console.log(response);
     document.getElementById("1").addEventListener('click',function(){
       document.querySelector("#response").innerHTML='<h5>your response is recorded<h5>';
     })
-    document.getElementById("2").addEventListener('click',function(){
-      document.querySelector("#response").innerHTML=` `;
-    })
+
 
 })
 

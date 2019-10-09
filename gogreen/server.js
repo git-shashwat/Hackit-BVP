@@ -1,6 +1,8 @@
 const path = require('path')
 const http = require('http')
 const express=require('express');
+var reload = require('reload');
+
 const app=express();
 const port=process.env.PORT||3000;
 const ejs=require("ejs");
@@ -23,20 +25,10 @@ app.set("view engine","ejs")
 
 app.get("/",(req,res)=>{
   res.render("home");
+  console.log(req.query);
 })
 
-app.get("/chat",(req,res)=>{
-  res.sendFile(__dirname+"/public/display.html");
 
-
-
-})
-
-app.post("/chat",(req,res)=>{
-  const {option}=req.body;
-  console.log(option);
-  res.redirect("/chat")
-})
 
   io.on('connection', (socket) => {
       console.log('New WebSocket connection')
@@ -74,10 +66,10 @@ app.post("/chat",(req,res)=>{
 
       socket.on('sendLocation', (coords, callback) => {
           const user = getUser(socket.id)
-          console.log(coords);
           io.to(user.room).emit('locationMessage', generateLocationMessage(user.username, `https://google.com/maps?q=${coords.latitude},${coords.longitude}`))
           callback()
       })
+
 
       socket.on('disconnect', () => {
           const user = removeUser(socket.id)
@@ -100,3 +92,4 @@ app.post("/chat",(req,res)=>{
 // app.listen(port,()=>{
 //   console.log("server started");
 // })
+reload(server, app);
