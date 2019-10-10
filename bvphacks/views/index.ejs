@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<link rel="stylesheet" href="css/index.css">
+
+<body>
+
+  <div class="container">
+      <% if(error && error.length > 0){ %>
+          <div class="alert alert-danger" role="alert">
+              <%= error %>
+          </div>
+      <% } %>
+      <% if(success && success.length > 0){ %>
+          <div class="alert alert-success" role="alert">
+              <%= success %>
+          </div>
+      <% } %>
+  </div>
+
+  <div class="back">
+
+    <nav class="navbar navbar-expand bg-dark">
+      <div class="container-fluid">
+
+        <div class="navbar-header " >
+          <div class="navbar-brand ">
+            <img src="green.jpg" alt="Home" />
+          </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <a href="/signup" class="btn btn-warning" style="margin:1rem 1rem;" >SignUp</a>
+            <a href="/login" class="btn btn-warning" style="margin:1rem 1rem;">Login</a>
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+
+
+    <div class="rooms">
+      <section class="wrapper">
+
+        <div class="container-fostrap">
+          <div class="row">
+
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                  <a class="img-card" href="/chat.html?username=sai&room=206">
+                    <img src="book.jpg" />
+                  </a>
+                  <div class="card-content">
+                    <h4 class="card-title">
+                      <a href="/chat.html?username=sai&room=206"> Akash 3rd Sem Books
+                      </a>
+                    </h4>
+                    <p class="" style="color:grey;">
+                      Posted By Shitij <br>
+                      Room No:206
+                    </p>
+                  </div>
+                  <div class="card-read-more">
+                    <a href="/chat.html?username=sai&room=206" class="btn btn-link btn-block">
+                      Connect
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                  <a class="img-card" href="/chat.html?username=sai&room=207">
+                    <img src="vernier.jpg" />
+                  </a>
+                  <div class="card-content">
+                    <h4 class="card-title">
+                      <a href="/chat.html?username=sai&room=207"> Vernier Calliper
+                      </a>
+                    </h4>
+                    <p class="" style="color:grey;">
+                      Posted By Shaswat <br>
+                      Room No:207
+                    </p>
+                  </div>
+                  <div class="card-read-more">
+                    <a href="/chat.html?username=sai&room=207" class="btn btn-link btn-block">
+                      Connect
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                  <a class="img-card" href="/chat.html?username=sai&room=208">
+                    <img src="paper.jpg" />
+                  </a>
+                  <div class="card-content">
+                    <h4 class="card-title">
+                      <a href="/chat.html?username=sai&room=208"> GGSIPU End Term Papers
+                      </a>
+                    </h4>
+                    <p class="" style="color:grey;">
+                      Posted By Rishab <br>
+                      Room No:208
+                    </p>
+                  </div>
+                  <div class="card-read-more">
+                    <a href="/chat.html?username=sai&room=208" class="btn btn-link btn-block">
+                      Connect
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+    </section>
+  </div>
+
+</div>
+
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</html>
