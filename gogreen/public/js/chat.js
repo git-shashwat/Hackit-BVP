@@ -116,8 +116,21 @@ $sendLocationButton.addEventListener('click', () => {
 
 
 
+socket.on('load old messages',function(docs){
+for(var i=docs.length-1;i>=0;i--){
+  displayMsg(docs[i])
+}
+})
 
-
+function displayMsg(data){
+  const html = Mustache.render(messageTemplate, {
+      username: data.name,
+      message: data.msg,
+      createdAt: moment(data.created).format('h:mm a')
+  })
+  $messages.insertAdjacentHTML('beforeend', html)
+  autoscroll()
+}
 
 
 

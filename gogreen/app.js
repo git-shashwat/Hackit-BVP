@@ -12,7 +12,7 @@ mongoose.connect("mongodb://localhost:27017/bvpDB",{useNewUrlParser:true},functi
   }
 })
 
-// const User=require('./models/user')
+const User=require('./models/user')
 const Post=require('./models/posts')
 const Message=require('./models/message')
 
@@ -58,9 +58,22 @@ if(req.query){
 
 })
 
+app.get("/:id",(req,res)=>{
+Post.findById(req.params.id,(err,found)=>{
+  if(err){
+    console.log(err);
+  }else{
+    Message.findById(req.params.id)
+
+  }
+})
+})
+
 
 
   io.on('connection', (socket) => {
+    socket.emit('message', generateMessage('Admin', 'Welcome!'))
+
     const query=Chat.find({})
     query.sort('-created').limit(10).exec(function(err,docs){
         console.log("sending old messages");
@@ -79,8 +92,7 @@ if(req.query){
 
           socket.join(user.room)
 
-          socket.emit('message', generateMessage('Admin', 'Welcome!'))
-          socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`))
+          // socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`))
           io.to(user.room).emit('roomData', {
               room: user.room,
               users: getUsersInRoom(user.room)
@@ -120,7 +132,7 @@ if(req.query){
           const user = removeUser(socket.id)
 
           if (user) {
-              io.to(user.room).emit('message', generateMessage('Admin', `${user.username} has left!`))
+              // io.to(user.room).emit('message', generateMessage('Admin', `${user.username} has left!`))
               io.to(user.room).emit('roomData', {
                   room: user.room,
                   user:user,
