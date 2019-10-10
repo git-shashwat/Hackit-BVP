@@ -5,7 +5,8 @@ const userRouter = require('./routers/user')
 const addRouter = require('./routers/add')
 const cointRouter = require('./routers/coin')
 const Add = require('./models/add')
-const multer = require('multer')
+const bodyParser = require('body-parser')
+bodyParser.urlencoded({extended:true})
 
 const app = express()
 const port = process.env.port || 8000
@@ -38,6 +39,10 @@ app.get('/', async (req, res) => {
     } catch (e) {
         res.status(500).send(e)
     }
+})
+
+app.get('/signup', (req, res) => {
+    res.render('signup')
 })
 
 app.listen(port, () => {

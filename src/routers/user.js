@@ -2,7 +2,10 @@ const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
 const Coin = require('../models/coin')
+const bodyParser = require('body-parser')
 const router = new express.Router()
+router.use(bodyParser.urlencoded({extended:true}))
+router.use(bodyParser.json())
 
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
@@ -13,8 +16,7 @@ router.post('/users', async (req, res) => {
         // Try to Implement it using middleware
         const coin = new Coin({ owner: user._id })
         await coin.save()
-        
-        res.status(201).send({ user, token })
+        res.redirect('/')
     } catch (e) {
         res.status(400).send(e)
     }
