@@ -19,6 +19,7 @@ coinSchema.methods.toJSON = function () {
     const coin = this
     const coinObject = coin.toObject()
 
+    // Can be removed if need be
     delete coinObject.owner
     return coinObject
 }
