@@ -17,6 +17,10 @@ const addSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    room: {
+        type: Number,
+        default: 200,
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

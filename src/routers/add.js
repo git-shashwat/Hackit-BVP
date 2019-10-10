@@ -4,11 +4,11 @@ const Add = require('../models/add')
 const router = new express.Router()
 
 router.post('/adds', auth, async (req, res) => {
-    const add = new Add({
+    const add = new Add ({
         ...req.body,
-        owner: req.user._id
+        owner: req.user._id,
+        room: Math.floor(Math.random() * Math.floor(1000))
     })
-
     try {
         await add.save()
         res.status(201).send(add)

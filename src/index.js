@@ -5,7 +5,7 @@ const userRouter = require('./routers/user')
 const addRouter = require('./routers/add')
 const cointRouter = require('./routers/coin')
 const Add = require('./models/add')
-const hbs = require('hbs')
+const multer = require('multer')
 
 const app = express()
 const port = process.env.port || 8000
@@ -20,18 +20,21 @@ app.use(userRouter)
 app.use(addRouter)
 app.use(cointRouter)
 
-// Setup handlebars engine and views location
-app.set('view engine', 'hbs')
-app.set('views', viewsPath)
-hbs.registerPartials(partialsPath)
+// Setup handlebars engine
+app.set('view engine', 'ejs')
 
 // Setup static directory to serve
 app.use(express.static(publicDirPath))
 
+// Add Image Upload Section if necessary
+
 app.get('/', async (req, res) => {
     try {
         const adds = await Add.find({})
-        res.send(adds)
+        if (!adds) {
+            return res.render({message:'No adds Available'})
+        }
+        res.render('index', { adds: adds })
     } catch (e) {
         res.status(500).send(e)
     }
