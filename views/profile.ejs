@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') -%>
+
+<div class="card mb-5 text-white bg-primary" style="width: 18rem;">
+    <div class="card-body">
+        <div class="card-header"><></div>
+        <div class="card-footer"><%= user.email %></div>
+    </div>
+</div> 
+<% if(user.adds.length===0){ %>
+    <div class="alert alert-danger" role="alert">
+            <p>No adds here!</p>
+    </div>
+    <%}%>
+      <div class="card-columns">
+          <% user.adds.forEach(add=>{ %>
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= add.title %></h5>
+              <p class="card-text"><%= add.description %></p>
+              <p class="card-text"><%= add.room %></p>
+              <a href="http://localhost:8000/chat.html?username=<%= add.owner %>&room=<%= add.room %>" class="btn btn-primary">Connect</a>
+            </div>
+          </div>
+<% }) %>
+</div>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

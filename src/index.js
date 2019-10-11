@@ -4,7 +4,6 @@ require('./db/mongoose')
 const userRouter = require('./routers/user')
 const addRouter = require('./routers/add')
 const cointRouter = require('./routers/coin')
-const Add = require('./models/add')
 const bodyParser = require('body-parser')
 bodyParser.urlencoded({extended:true})
 
@@ -17,32 +16,26 @@ const viewsPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
 app.use(express.json())
-app.use(userRouter)
 app.use(addRouter)
+app.use(userRouter)
 app.use(cointRouter)
 
-// Setup handlebars engine
+// Setup ejs engine
 app.set('view engine', 'ejs')
 
 // Setup static directory to serve
 app.use(express.static(publicDirPath))
 
-// Add Image Upload Section if necessary
-
-app.get('/', async (req, res) => {
-    try {
-        const adds = await Add.find({})
-        if (!adds) {
-            return res.render({message:'No adds Available'})
-        }
-        res.render('index', { adds: adds })
-    } catch (e) {
-        res.status(500).send(e)
-    }
-})
-
 app.get('/signup', (req, res) => {
     res.render('signup')
+})
+
+app.get('/signin', (req, res) => {
+    res.render('signin')
+})
+
+app.get('/postad', (req, res) => {
+    res.render('postad')
 })
 
 app.listen(port, () => {

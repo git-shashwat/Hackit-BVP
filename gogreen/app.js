@@ -4,7 +4,7 @@ const express=require('express');
 var reload = require('reload');
 const mongoose=require('mongoose')
 
-mongoose.connect("mongodb://localhost:27017/bvpDB",{useNewUrlParser:true},function(err){
+mongoose.connect("mongodb://localhost:27017/bvpDB",{useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex: true},function(err){
   if(err){
     console.log(err);
   }else{
@@ -146,7 +146,4 @@ Post.findById(req.params.id,(err,found)=>{
   server.listen(port, () => {
       console.log(`Server is up on port ${port}!`)
   })
-// app.listen(port,()=>{
-//   console.log("server started");
-// })
 reload(server, app);
